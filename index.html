@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iselina Miroslava | Educación Financiera</title>
+  <meta name="description" content="Educación financiera, inversiones y construcción de patrimonio. Aprende a hacer que tu dinero crezca mientras duermes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&family=Parisienne&family=Tangerine:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold: #9a7f3e;
+      --gold-light: #c4a55a;
+      --gold-soft: #B89C78;
+      --gold-dark: #7a6030;
+      --dark-bg: #2D433A;
+      --dark-darker: #243630;
+      --cream: #EFEBE4;
+      --cream-light: #F5F2EF;
+      --text-dark: #2c2c2c;
+      --font-heading: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+      --font-cinzel: 'Cinzel', Georgia, serif;
+      --font-script: 'Parisienne', cursive;
+      --font-tangerine: 'Tangerine', cursive;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text-dark);
+      background: var(--cream-light);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ==================== NAVBAR ==================== */
+    .navbar {
+      background: var(--dark-bg);
+      color: #fff;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .navbar .logo-img {
+      width: 3.85rem;
+      height: 3.85rem;
+      object-fit: contain;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .nav-links a {
+      font-family: var(--font-cinzel);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      color: #E8E0D5;
+      position: relative;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold-light); }
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 100%; height: 1px;
+      background: var(--gold-light);
+    }
+    .hamburger { display: none; flex-direction: column; gap: 6px; cursor: pointer; background: none; border: none; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #E8E0D5; transition: all 0.3s; }
+
+    /* ==================== HERO ==================== */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      min-height: calc(100vh - 70px);
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 72rem;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 2.5rem;
+      padding: 2rem 1.5rem;
+    }
+    .hero-portrait {
+      flex-shrink: 0;
+      width: clamp(240px, 33vw, 480px);
+      height: clamp(350px, 50vw, 705px);
+      border-radius: 50% 50% 0 0;
+      border: 4px solid #B89C78;
+      overflow: hidden;
+      box-sizing: border-box;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    .hero-portrait img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 15%;
+    }
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: left;
+      max-width: 32rem;
+    }
+    .hero-text h1 {
+      font-family: var(--font-script);
+      color: var(--dark-bg);
+      font-size: clamp(3.5rem, 7vw, 6rem);
+      font-weight: 400;
+      line-height: 1;
+    }
+    .hero-text h2 {
+      font-family: var(--font-heading);
+      color: var(--dark-bg);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: 0.05em;
+    }
+    .hero-subtitle {
+      font-family: var(--font-cinzel);
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      color: var(--gold-soft);
+      font-size: 0.7rem;
+      margin-top: 0.75rem;
+    }
+    .hero-tagline {
+      font-family: var(--font-heading);
+      font-style: italic;
+      color: var(--dark-bg);
+      font-size: 1.2rem;
+      font-weight: 400;
+      line-height: 1.4;
+      margin-top: 0.5rem;
+    }
+    .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 2rem;
+      border-radius: 0.5rem;
+      font-family: var(--font-cinzel);
+      font-weight: 500;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: var(--gold-soft);
+      background: var(--dark-bg);
+      margin-top: 1.25rem;
+      transition: opacity 0.2s;
+      width: fit-content;
+    }
+    .hero-btn:hover { opacity: 0.9; }
+
+    /* ==================== ABOUT ==================== */
+    .about {
+      background: var(--cream);
+      padding: 4rem 1.5rem;
+    }
+    .about-inner {
+      max-width: 64rem;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: row;
+      gap: 4rem;
+    }
+    .about-left { flex: 1; }
+    .about-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .about-header .tree-icon {
+      width: 5.46rem;
+      height: 5.46rem;
+      object-fit: contain;
+      mix-blend-mode: multiply;
+    }
+    .about-header h2 {
+      font-family: var(--font-cinzel);
+      color: var(--dark-bg);
+      text-transform: uppercase;
+      font-weight: 500;
+      font-size: 1.5rem;
+      letter-spacing: 0.2em;
+    }
+    .gold-line { width: 3rem; height: 1px; background: var(--gold-soft); margin-bottom: 1.5rem; }
+    .about-left p.lead { font-size: 0.85rem; color: #374151; margin-bottom: 1rem; font-weight: 600; line-height: 1.7; }
+    .about-left p.body { font-size: 0.85rem; color: #4b5563; margin-bottom: 2rem; line-height: 1.7; }
+    .signature {
+      font-family: var(--font-script);
+      color: var(--dark-bg);
+      font-size: 1.875rem;
+    }
+    .about-divider {
+      width: 1px;
+      background: #D6CFC4;
+      align-self: stretch;
+    }
+    .about-right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.25rem;
+    }
+    .check-item { display: flex; align-items: center; gap: 0.75rem; }
+    .check-infinity {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      color: var(--gold-soft);
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+    .check-item span { font-size: 0.85rem; color: var(--dark-bg); }
+
+    /* ==================== SERVICES ==================== */
+    .services {
+      padding: 4rem 1.5rem;
+      background: var(--cream-light);
+    }
+    .services-inner { max-width: 64rem; margin: 0 auto; }
+    .services h2.section-title {
+      font-family: var(--font-cinzel);
+      text-align: center;
+      color: var(--dark-bg);
+      text-transform: uppercase;
+      font-weight: 500;
+      font-size: 1.5rem;
+      letter-spacing: 0.2em;
+      margin-bottom: 3rem;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+    }
+    .service-card { display: flex; flex-direction: column; gap: 1rem; }
+    .service-header { display: flex; align-items: flex-start; gap: 0.75rem; }
+    .service-icon-circle {
+      width: 3.5rem; height: 3.5rem;
+      border-radius: 50%;
+      background: var(--dark-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .service-icon-circle svg { width: 2rem; height: 2rem; }
+    .service-header h3 {
+      font-family: var(--font-cinzel);
+      font-weight: 600;
+      font-size: 0.75rem;
+      color: var(--dark-bg);
+      letter-spacing: 0.1em;
+      line-height: 1.3;
+    }
+    .service-header p { font-size: 0.75rem; color: #4b5563; margin-top: 0.25rem; line-height: 1.3; }
+    .service-list { display: flex; flex-direction: column; gap: 0.5rem; }
+    .service-list li { display: flex; align-items: flex-start; gap: 0.5rem; }
+    .service-list .dot {
+      margin-top: 6px;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold-soft);
+      flex-shrink: 0;
+    }
+    .service-list span { font-size: 0.75rem; color: #374151; line-height: 1.3; }
+
+    /* ==================== FOOTER ==================== */
+    .footer { font-family: var(--font-body); }
+    .footer-main {
+      background: var(--dark-bg);
+      padding: 3.5rem 1.5rem;
+    }
+    .footer-grid {
+      max-width: 64rem;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+    }
+    .footer-quote { display: flex; flex-direction: column; justify-content: center; }
+    .footer-quote .marks {
+      font-size: 3rem;
+      color: var(--gold-soft);
+      font-family: Georgia, serif;
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+    .footer-quote p {
+      font-family: var(--font-heading);
+      font-style: italic;
+      color: #fff;
+      font-weight: 300;
+      font-size: 1.15rem;
+      line-height: 1.6;
+    }
+    .footer-qr { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+    .footer-qr h3 {
+      font-family: var(--font-cinzel);
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+    .footer-qr p { font-size: 0.75rem; color: #9ca3af; text-align: center; line-height: 1.5; max-width: 18rem; }
+    .qr-box {
+      width: 7rem; height: 7rem;
+      background: #fff;
+      border-radius: 0.5rem;
+      padding: 0.5rem;
+    }
+    .qr-box img { width: 100%; height: 100%; object-fit: contain; }
+    .footer-contact { display: flex; flex-direction: column; gap: 1rem; justify-content: center; }
+    .footer-contact h3 {
+      font-family: var(--font-cinzel);
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+    .contact-item { display: flex; align-items: center; gap: 0.75rem; }
+    .contact-icon-box {
+      width: 2rem; height: 2rem;
+      border-radius: 0.25rem;
+      border: 1px solid var(--gold-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-icon-box svg { width: 1rem; height: 1rem; }
+    .contact-item span, .contact-item a { font-size: 0.75rem; color: #d1d5db; }
+    .contact-item a:hover { color: #fff; }
+
+    .footer-tagline {
+      background: var(--cream);
+      padding: 0.75rem;
+      text-align: center;
+    }
+    .footer-tagline p {
+      font-family: var(--font-cinzel);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--dark-bg);
+    }
+    .footer-copyright {
+      background: var(--dark-darker);
+      padding: 0.5rem;
+      text-align: center;
+    }
+    .footer-copyright p { font-size: 0.7rem; color: #4b5563; }
+
+    /* ==================== RESPONSIVE ==================== */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%; left: 0;
+        width: 100%;
+        background: var(--dark-bg);
+        padding: 1rem;
+        gap: 1rem;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        z-index: 40;
+      }
+      .hero-content { flex-direction: column; gap: 1.5rem; }
+      .hero-text { text-align: center; align-items: center; }
+      .hero-btn { margin-left: auto; margin-right: auto; }
+      .about-inner { flex-direction: column; gap: 2rem; }
+      .about-divider { display: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <nav class="navbar">
+    <img
+      class="logo-img"
+      id="logoImg"
+      src="https://media.base44.com/images/public/6a3864f99fb2d7166ea8087b/229df0e8c_logo.jpg"
+      alt="IM Logo"
+      crossorigin="anonymous"
+    />
+    <div class="nav-links" id="navLinks">
+      <a href="#inicio" class="active">INICIO</a>
+      <a href="#sobre-mi">SOBRE MI</a>
+      <a href="#servicios">SERVICIOS</a>
+      <a href="#contacto">CONTACTO</a>
+    </div>
+    <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero" id="inicio">
+    <img class="hero-bg" src="https://media.base44.com/images/public/6a3864f99fb2d7166ea8087b/be62d28f5_BackgroundHero.png" alt="Hero Background" />
+    <div class="hero-content">
+      <div class="hero-portrait">
+        <img src="https://media.base44.com/images/public/6a3864f99fb2d7166ea8087b/7fda571f1_Portrait.jpg" alt="Iselina Miroslava" />
+      </div>
+      <div class="hero-text">
+        <h1>Iselina</h1>
+        <h2>MIROSLAVA</h2>
+        <p class="hero-subtitle">EDUCACIÓN FINANCIERA | INVERSIONES |<br>CONSTRUCCIÓN DE PATRIMONIO</p>
+        <p class="hero-tagline">Aprende a hacer que tu dinero crezca mientras duermes.</p>
+        <a href="https://calendly.com/iselina-hernandez-exty/30min" target="_blank" rel="noopener noreferrer" class="hero-btn">
+          AGENDA TU CITA
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <rect x="1" y="2" width="12" height="11" rx="1" stroke="#B89C78" stroke-width="1.2"/>
+            <path d="M1 5h12M4 1v2M10 1v2" stroke="#B89C78" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ABOUT ==================== -->
+  <section class="about" id="sobre-mi">
+    <div class="about-inner">
+      <div class="about-left">
+        <div class="about-header">
+          <img class="tree-icon" src="https://media.base44.com/images/public/6a3864f99fb2d7166ea8087b/080e02966_GoldTree.jpg" alt="Gold Tree" />
+          <h2>SOBRE MI</h2>
+        </div>
+        <div class="gold-line"></div>
+        <p class="lead">Emprendedora e inversionista apasionada por la educación financiera.</p>
+        <p class="body">Mi misión es acercar la educación financiera a personas, emprendedores y jóvenes para que puedan tomar mejores decisiones con su dinero y construir un futuro de libertad, seguridad y prosperidad.</p>
+        <p class="signature">Iselina Miroslava</p>
+      </div>
+      <div class="about-divider"></div>
+      <div class="about-right">
+        <div class="check-item">
+          <span class="check-infinity">∞</span>
+          <span>Formación continua</span>
+        </div>
+        <div class="check-item">
+          <span class="check-infinity">∞</span>
+          <span>Visión a largo plazo</span>
+        </div>
+        <div class="check-item">
+          <span class="check-infinity">∞</span>
+          <span>Estrategias inteligentes</span>
+        </div>
+        <div class="check-item">
+          <span class="check-infinity">∞</span>
+          <span>Educación con propósito</span>
+        </div>
+        <div class="check-item">
+          <span class="check-infinity">∞</span>
+          <span>Resultados que transforman vidas</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SERVICES ==================== -->
+  <section class="services" id="servicios">
+    <div class="services-inner">
+      <h2 class="section-title">SERVICIOS</h2>
+      <div class="services-grid">
+
+        <!-- Para Personas -->
+        <div class="service-card">
+          <div class="service-header">
+            <div class="service-icon-circle">
+              <svg viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="13" r="6" stroke="#B89C78" stroke-width="1.5"/>
+                <path d="M8 36c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="#B89C78" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3>PARA PERSONAS</h3>
+              <p>Herramientas para tu vida financiera y tu futuro.</p>
+            </div>
+          </div>
+          <ul class="service-list">
+            <li><span class="dot"></span><span>Estrategias de Inversión</span></li>
+            <li><span class="dot"></span><span>Construcción de Patrimonio</span></li>
+            <li><span class="dot"></span><span>Planeación Financiera Personal</span></li>
+          </ul>
+        </div>
+
+        <!-- Para Empresarios -->
+        <div class="service-card">
+          <div class="service-header">
+            <div class="service-icon-circle">
+              <svg viewBox="0 0 40 40" fill="none">
+                <rect x="6" y="14" width="28" height="20" rx="2" stroke="#B89C78" stroke-width="1.5"/>
+                <path d="M14 14V10a6 6 0 0112 0v4" stroke="#B89C78" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="20" cy="24" r="3" stroke="#B89C78" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <div>
+              <h3>PARA EMPRESARIOS (PYMES)</h3>
+              <p>Soluciones financieras para hacer crecer tu negocio.</p>
+            </div>
+          </div>
+          <ul class="service-list">
+            <li><span class="dot"></span><span>Estrategias de Finanza Empresarial</span></li>
+            <li><span class="dot"></span><span>Planeación y Control Financiero</span></li>
+            <li><span class="dot"></span><span>Análisis de Mercados</span></li>
+          </ul>
+        </div>
+
+        <!-- Para Escuelas -->
+        <div class="service-card">
+          <div class="service-header">
+            <div class="service-icon-circle">
+              <svg viewBox="0 0 40 40" fill="none">
+                <path d="M20 6L4 14l16 8 16-8L20 6z" stroke="#B89C78" stroke-width="1.5" stroke-linejoin="round"/>
+                <path d="M10 18v8c0 2 5 4 10 4s10-2 10-4v-8" stroke="#B89C78" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M36 14v10" stroke="#B89C78" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3>PARA ESCUELAS</h3>
+              <p>Educación financiera para tomar mejores decisiones desde hoy.</p>
+            </div>
+          </div>
+          <ul class="service-list">
+            <li><span class="dot"></span><span>Introducción al Ahorro e Inversión</span></li>
+            <li><span class="dot"></span><span>Cultura Financiera Temprana</span></li>
+            <li><span class="dot"></span><span>Taller con demo para tradear</span></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer" id="contacto">
+    <div class="footer-main">
+      <div class="footer-grid">
+
+        <!-- Quote -->
+        <div class="footer-quote">
+          <span class="marks">"</span>
+          <p>El conocimiento financiero es la herramienta más poderosa para crear libertad.</p>
+        </div>
+
+        <!-- QR -->
+        <div class="footer-qr">
+          <h3>AGENDA TU CITA</h3>
+          <p>Escanea el código QR para agendar una consulta introductoria sin compromiso.</p>
+          <div class="qr-box">
+            <img src="https://media.base44.com/images/public/6a3864f99fb2d7166ea8087b/543174585_QRCode.png" alt="QR Code" />
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="footer-contact">
+          <h3>CONECTA CONMIGO</h3>
+          <div class="contact-item">
+            <div class="contact-icon-box">
+              <svg viewBox="0 0 20 20" fill="none">
+                <path d="M2 4l8 6 8-6" stroke="#B89C78" stroke-width="1.5" stroke-linecap="round"/>
+                <rect x="2" y="4" width="16" height="12" rx="2" stroke="#B89C78" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <span>hola@iselina.com.mx</span>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon-box">
+              <svg viewBox="0 0 20 20" fill="none">
+                <path d="M6 2C5 2 4 3 4 4c0 8 8 14 12 14 1 0 2-1 2-2l-3-3-2 1C10 12 8 10 7 7l1-2-2-3z" stroke="#B89C78" stroke-width="1.3"/>
+              </svg>
+            </div>
+            <span>+52 56 1000 8189</span>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon-box">
+              <svg viewBox="0 0 20 20" fill="none">
+                <rect x="2" y="2" width="16" height="16" rx="3" stroke="#B89C78" stroke-width="1.5"/>
+                <path d="M6 9v5M6 6.5V7M10 14V9m0 0c0-2 4-2 4 0v5" stroke="#B89C78" stroke-width="1.3" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <a href="https://www.linkedin.com/in/iselina-miroslava" target="_blank" rel="noopener noreferrer">linkedin.com/in/iselina-miroslava</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-tagline">
+      <p>EDUCACIÓN FINANCIERA PARA UNA VIDA EXTRAORDINARIA</p>
+    </div>
+    <div class="footer-copyright">
+      <p>© 2026 ISELINAMIROSLAVA. TODOS LOS DERECHOS RESERVADOS.</p>
+    </div>
+  </footer>
+
+  <!-- ==================== SCRIPT: Remove white background from logo ==================== -->
+  <script>
+    (function() {
+      var logoImg = document.getElementById('logoImg');
+      if (!logoImg) return;
+
+      function processLogo() {
+        try {
+          var canvas = document.createElement('canvas');
+          canvas.width = logoImg.naturalWidth;
+          canvas.height = logoImg.naturalHeight;
+          var ctx = canvas.getContext('2d');
+          ctx.drawImage(logoImg, 0, 0);
+          var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+          var data = imageData.data;
+          for (var i = 0; i < data.length; i += 4) {
+            var r = data[i];
+            var g = data[i + 1];
+            var b = data[i + 2];
+            if (r > 235 && g > 235 && b > 210) {
+              data[i + 3] = 0;
+            } else if (r > 215 && g > 215 && b > 190) {
+              data[i + 3] = 80;
+            }
+          }
+          ctx.putImageData(imageData, 0, 0);
+          logoImg.src = canvas.toDataURL('image/png');
+        } catch(e) {
+          console.warn('Logo background removal failed:', e);
+        }
+      }
+
+      if (logoImg.complete && logoImg.naturalWidth > 0) {
+        processLogo();
+      } else {
+        logoImg.addEventListener('load', processLogo);
+      }
+    })();
+  </script>
+
+</body>
+</html>
